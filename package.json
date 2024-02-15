@@ -1,0 +1,11 @@
+{
+  "name": "weather-api",
+  "version": "0.0.1",
+  "description": "Weather API enter your city name and see various details",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Hemal-Pandya",
+  "license": "ISC"
+}
