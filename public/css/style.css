@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
-    ---card--border-color: rgb(42, 42, 42);
+    --card-border-color: rgb(42, 42, 42);
+    --card-hoverBorder-color: rgb(250, 224, 74);
     --primary-color: rgb(255, 255, 255);
 }
 
@@ -29,9 +30,49 @@ body {
 .card{
     background-color: var(--primary-color);
     border-radius: 15px;
-    box-shadow: 0px 0px 15px var(---card--border-color);
+    box-shadow: 0px 0px 15px var(--card-border-color);
+    border: 1px solid black;
 }
 
 .card4{
     grid-column-end: span 3;
+}
+
+.card:hover{
+    transition: border, box-shadow 1s ease-in-out;
+    border: 4px solid black;
+    box-shadow: none;
+}
+
+.search{
+    border-radius: 50px;
+    font-size: 18px;
+    margin: 10px auto;
+    padding: 1em;
+    border: 2px solid black;
+    
+}
+
+.card1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1100px) {
+    .cards{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: 200vh;
+    }
+
+    .card4{
+        grid-column-end: span 1;
+    }
+
+    .search{
+        font-size: 5px;
+    }
+
+
 }

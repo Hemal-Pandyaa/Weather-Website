@@ -1,7 +1,12 @@
 <%- include("partials/header.ejs"); %>
 
 <section class="cards">
-    <div class="card card1"></div>
+    <div class="card card1">
+        <form action="/search" class="searchBar">
+            <input type="text" class="search" placeholder="City/Town"/>
+        </form>
+        <img src="<%= svg %>" alt="">
+    </div>
     <div class="card card2"></div>
     <div class="card card3"></div>
     <div class="card card4"></div>
