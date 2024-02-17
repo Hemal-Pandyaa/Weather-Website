@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import axios from "axios";
 
 dotenv.config();
 const app = express();
@@ -12,8 +13,25 @@ app.use(bodyParser.urlencoded({ extended:true }));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
-app.get("/", (req,res) => {
-    res.render("index.ejs");
+app.get("/", async (req,res) => {
+    const URL = `${API_URL}?key=${API_KEY}&q=London`;
+    const response = await axios.get(URL).then(
+        (response) => {
+            if(response.ok){
+                let data = response.data;
+            }
+        }
+    ).catch(
+        (error) => {
+            let data = data.error.message;
+        }
+    );
+
+    let locData = {
+        data:data
+    };
+
+    res.render("index.ejs", locData);
 });
     
 
