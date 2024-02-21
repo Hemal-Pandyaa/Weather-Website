@@ -14,7 +14,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", async (req, res) => {
-    const location = req.query.location || "London";
+    const location = "London" || req.query.location;
     const URL = `${API_URL}?key=${API_KEY}&q=${location}`;
 
     // Axios request to api for default location
