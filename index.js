@@ -18,13 +18,14 @@ app.get("/", (req,res) => {
 })
 
 app.get("/home", async (req, res) => {
+    console.log(req.params.location)
     const location = "London" || req.query.location;
     const URL = `${API_URL}?key=${API_KEY}&q=${location}`;
 
     // Axios request to api for default location
     const data = await get(URL);
     if (data.error) {
-        res.render("error.ejs");
+        // res.render("error.ejs");
     } else {
         let locData = {
             data: data,
@@ -37,7 +38,7 @@ app.get("/home", async (req, res) => {
 app.post("/search", (req, res) => {
     const location = req.body["location"];
     console.log("location");
-    res.redirect(`/?location=${location}`);
+    res.redirect(`/home?location=${location}`);
 });
 
 app.listen(PORT, () => {
