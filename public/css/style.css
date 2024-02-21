@@ -13,7 +13,7 @@
 
 body {
     background: linear-gradient(
-        royalblue 60%,
+        royalblue 30%,
         rgb(52, 52, 250),
         blue
     );
@@ -33,17 +33,18 @@ body {
 }
 
 .card{
-    background: linear-gradient(
-        #3BB1C4
-        rgb(167, 237, 230)
-    );
+    background-color: whitesmoke;
     border-radius: 15px;
     box-shadow: 0px 0px 15px var(--card-border-color);
     border: 1px solid black;
 }
 
-.card4{
-    grid-column-end: span 3;
+.card1{
+    grid-column-end: span 2;
+}
+
+.card2{
+    grid-row-end: span 2;
 }
 
 .card:hover{
@@ -165,31 +166,19 @@ body {
     .cards{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        height: 1400px;
+        height: 900px;
     }
 
-    .card4{
+    .card1{
         grid-column-end: span 1;
     }
 
-    .search{
-        font-size: 5px;
-    }
-
-}
-
-@media (max-width: 950px) {
-    .cards{
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        height: 1400px;
-    }
-
-    .card4{
-        grid-column-end: span 1;
+    .card2{
+        grid-row-end: span 1;
     }
 
     .search{
-        font-size: 5px;
+        font-size: 18px;
     }
+
 }
