@@ -18,14 +18,15 @@ app.get("/", (req,res) => {
 })
 
 app.get("/home", async (req, res) => {
-    console.log(req.query.location)
-    const location = "London" || req.query.location;
+    const location =  req.query.location || "London";
+    console.log(location)
     const URL = `${API_URL}?key=${API_KEY}&q=${location}`;
+    console.log(URL)
 
     // Axios request to api for default location
     const data = await get(URL);
     if (data.error) {
-        // res.render("error.ejs");
+        res.render("error.ejs");
     } else {
         let locData = {
             data: data,
