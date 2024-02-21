@@ -13,7 +13,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-app.get("/", async (req, res) => {
+app.get("/", (req,res) => {
+    res.redirect("/home")
+})
+
+app.get("/home", async (req, res) => {
     const location = "London" || req.query.location;
     const URL = `${API_URL}?key=${API_KEY}&q=${location}`;
 
