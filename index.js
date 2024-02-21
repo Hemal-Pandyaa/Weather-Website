@@ -18,7 +18,7 @@ app.get("/", (req,res) => {
 })
 
 app.get("/home", async (req, res) => {
-    console.log(req.params.location)
+    console.log(req.query.location)
     const location = "London" || req.query.location;
     const URL = `${API_URL}?key=${API_KEY}&q=${location}`;
 
