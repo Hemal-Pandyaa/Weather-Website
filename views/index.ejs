@@ -21,12 +21,22 @@
                     <img src="svg/search.svg" alt="searchButton" />
                 </button>
             </form>
-            <img
-                src="<%= data.current.condition.icon %>"
-                alt="<%= data.current.condition.text%>"
-                class="weather card1-item" />
             <p class="loc-name card1-item"><%= data.location.name %></p>
-            <p class="tempr card1-item"><%= data.current.temp_c %></p>
+            <div class="info">
+                <img
+                    src="<%= data.current.condition.icon %>"
+                    alt="<%= data.current.condition.text%>"
+                    class="weather card1-item" />
+                <div class="temprature">
+                    <p class="tempr card1-item">
+                        <%= eval(`data.current.temp_c`) %> %>
+                    </p>
+                </div>
+                <div class="lat-long">
+                    <p class="lat lat-info"></p>
+                    <p class="long long-info"></p>
+                </div>
+            </div>
         </div>
         <div class="card card2"></div>
         <div class="card card3"></div>

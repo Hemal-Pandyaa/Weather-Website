@@ -26,7 +26,7 @@ body {
 .container{
     padding: 10px;
     width: 100vw;
-    height: 800px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@ body {
 
 .cards {
     display: grid;
-    height: 800px;
+    height: 700px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 50px;
@@ -76,11 +76,13 @@ body {
 }
 
 .card1{
+    padding: 20px;
     display: flex;
     justify-content: space-around;
     align-items: left;
     flex-direction: column;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .loc-name{
@@ -99,15 +101,10 @@ body {
     width: 150px;
     height: 150px;
     position: relative;
-    left: -30px;
-}
-
-.card1-item{
-    padding: 0px 20px;
 }
 
 .tempr {
-    font-size: 36px;
+    font-size: 108px;
 }
 
 .tempr::after{
@@ -115,10 +112,11 @@ body {
     display: inline-block;
     position: relative;
     border-radius: 50%;
-    width: 5px;
-    height: 5px;
+    width: 15px;
+    height: 15px;
     border: 1px solid black;
-    top: -20px;
+    top: -60px;
+    left: -30px;
 }
 
 .submit{
@@ -148,6 +146,10 @@ body {
     background-color: transparent;
 }
 
+.temprature{
+    display: inline-block;
+}
+
 #cloud1{
     position: absolute;
     top: -348px;
@@ -172,6 +174,9 @@ body {
     left: 1100px;
 }
 
+.info{
+    display: flex;
+}
 
 @media (max-width: 1200px) {
     .cards{

@@ -38,7 +38,6 @@ app.get("/home", async (req, res) => {
 
 app.post("/search", (req, res) => {
     const location = req.body["location"];
-    console.log("location");
     res.redirect(`/home?location=${location}`);
 });
 
