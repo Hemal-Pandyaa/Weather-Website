@@ -20,7 +20,6 @@ body {
         blue
     );
     overflow-x: hidden;
-
 }
 
 .container{
@@ -147,7 +146,14 @@ body {
 }
 
 .temprature{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+}
+
+.feels-like{
+    font-size: 16px;
+    position: relative;
+    top: -46px;
 }
 
 #cloud1{
@@ -182,22 +188,34 @@ body {
     font-size: 28px;
 }
 
+.card2,.card3,.card4{
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 32px;
+}
+
+footer{
+    display: block;
+    margin: 30px;
+}
+
 @media (max-width: 1200px) {
     .cards{
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        height: 900px;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin: 500px auto;
+        height: auto;
         width: calc(100vw - 50px);
-        margin: 300px auto;
     }
 
     .card1{
-        grid-column-end: span 1;
+        grid-column-end: span 2;
     }
 
     .card2{
-        grid-row-end: span 1;
+        grid-row-end: span 2;
     }
+
 
     .search{
         font-size: 18px;

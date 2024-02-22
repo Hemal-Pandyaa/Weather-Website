@@ -6,7 +6,7 @@ import axios from "axios";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-const API_URL = "http://api.weatherapi.com/v1/current.json";
+const API_URL = "http://api.weatherapi.com/v1/";
 const API_KEY = process.env.API_KEY;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,21 +19,26 @@ app.get("/", (req,res) => {
 
 app.get("/home", async (req, res) => {
     const location =  req.query.location || "London";
-    console.log(location)
-    const URL = `${API_URL}?key=${API_KEY}&q='${location}'`;
-    console.log(URL)
+    const date = getDate();
+    const current = `${API_URL}current.json?key=${API_KEY}&q='${location}&aqi=yes`;
+    const astronomy = `${API_URL}astronomy.json?key=${API_KEY}&q='${location}&dt=${date}`;
 
-    // Axios request to api for default location
-    const data = await get(URL);
-    if (data.error) {
-        res.render("error.ejs");
-    } else {
-        let locData = {
-            data: data,
-        };
+    let current_data = await getData(current);
+    let astronomy_data = await getData(astronomy);
 
-        res.render("index.ejs", locData);
+    console.log(astronomy_data)
+
+    current_data["astronomy"] = astronomy_data.astronomy;
+    const localtime = current_data.location.localtime
+    const current_date = `${localtime.slice(8,10)}-${localtime.slice(5,7)}-${localtime.slice(0,4)}`
+
+    let loc_data = {
+        data:current_data,
+        current_date:current_date
     }
+
+    res.render("index.ejs",loc_data)
+    
 });
 
 app.post("/search", (req, res) => {
@@ -54,5 +59,21 @@ async function get(URL) {
         data = { error: error.message };
     }
 
+    return data;
+}
+
+function getDate(){
+    const date = new Date();
+    let todayDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    return todayDate;
+}
+
+async function getData(URL){
+    const data = await get(URL);
+    if (data.error) {
+        console.log(data.error)
+        return "Error!"
+    }
+    console.log(data);
     return data;
 }
