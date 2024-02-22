@@ -20,7 +20,7 @@ app.get("/", (req,res) => {
 app.get("/home", async (req, res) => {
     const location =  req.query.location || "London";
     console.log(location)
-    const URL = `${API_URL}?key=${API_KEY}&q=${location}`;
+    const URL = `${API_URL}?key=${API_KEY}&q='${location}'`;
     console.log(URL)
 
     // Axios request to api for default location
