@@ -18,6 +18,7 @@ body {
         rgb(52, 52, 250),
         blue
     );
+    width: 100vw;
     overflow-x: hidden;
 }
 
@@ -29,6 +30,8 @@ body {
     justify-content: center;
     align-items: center;
     margin: 20px auto;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .cards {
@@ -228,9 +231,13 @@ footer{
         height: auto;
     }
 
+    #cloud4, #cloud3{
+        display: none;
+    }
+
 }
 
-@media (max-width: 800px){
+@media (max-width: 700px){
     .cards{
         grid-template-columns: 1fr;
         grid-template-rows: repeat(7, 1fr);
@@ -286,6 +293,16 @@ footer{
     .feels-like{
         top: 0px;
     }
+
+    #cloud2{
+        display: none;
+    }
+
+    #cloud1{
+        width: 100vw;
+        top: -200px;
+        left: 5px;
+    }
 }
 
 @media (max-width: 500px){
@@ -293,4 +310,11 @@ footer{
         visibility: none;
         all: unset;
     }
+
+    #cloud1{
+        width: 100vw;
+        top: -165px;
+        left: 5px;
+    }
+
 }
