@@ -1,4 +1,4 @@
-import express from "express";
+import express, { application } from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import axios from "axios";
@@ -20,20 +20,21 @@ app.get("/", (req,res) => {
 app.get("/home", async (req, res) => {
     const location =  req.query.location || "London";
     const date = getDate();
-    const current = `${API_URL}current.json?key=${API_KEY}&q='${location}&aqi=yes`;
-    const astronomy = `${API_URL}astronomy.json?key=${API_KEY}&q='${location}&dt=${date}`;
 
-    let current_data = await getData(current);
-    let astronomy_data = await getData(astronomy);
+    const URL = `${API_URL}forecast.json?key=${API_KEY}&q=${location}&days=1&aqi=yes&alerts=yes`;
 
-    console.log(astronomy_data)
+    const data = await get(URL);
+    if (data.error) {
+        console.log(data.error)
+        return data.error
+    }
+    console.log(data);
 
-    current_data["astronomy"] = astronomy_data.astronomy;
-    const localtime = current_data.location.localtime
+    const localtime = data.location.localtime
     const current_date = `${localtime.slice(8,10)}-${localtime.slice(5,7)}-${localtime.slice(0,4)}`
 
     let loc_data = {
-        data:current_data,
+        data:data,
         current_date:current_date
     }
 
@@ -72,7 +73,7 @@ async function getData(URL){
     const data = await get(URL);
     if (data.error) {
         console.log(data.error)
-        return "Error!"
+        return data.error
     }
     console.log(data);
     return data;

@@ -43,10 +43,10 @@
         </div>
         <div class="card card2">
             <div class="rise-set">
-                <p class="sunrise">Sun Rise: <br /> <%= data.astronomy.astro.sunrise %></p><br /><br />
-                <p class="sunset">Sun Set: <br /> <%= data.astronomy.astro.sunset %></p><br /><br />
-                <p class="moonrise">Moon Rise: <br /> <%= data.astronomy.astro.moonrise %></p><br /><br />
-                <p class="moonset">Moon Set: <br /> <%= data.astronomy.astro.moonset %></p><br /><br />
+                <p class="sunrise">Sun Rise: <br /> <%= data.forecast.forecastday[0].astro.sunrise %></p><br /><br />
+                <p class="sunset">Sun Set: <br /> <%= data.forecast.forecastday[0].astro.sunset %></p><br /><br />
+                <p class="moonrise">Moon Rise: <br /> <%= data.forecast.forecastday[0].astro.moonrise %></p><br /><br />
+                <p class="moonset">Moon Set: <br /> <%= data.forecast.forecastday[0].astro.moonset %></p><br /><br />
             </div>
         </div>
         <div class="card card3">
