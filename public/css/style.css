@@ -12,8 +12,7 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    height: inherit;
     background: linear-gradient(
         royalblue 30%,
         rgb(52, 52, 250),
@@ -29,7 +28,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 300px auto auto auto;
+    margin: 20px auto;
 }
 
 .cards {
@@ -141,6 +140,11 @@ body {
     transition: background-color 0.5s ease-in-out;
 }
 
+.clouds{
+    width: 100vw;
+    height: 300px;
+}
+
 .cloud{
     background-color: transparent;
 }
@@ -203,7 +207,6 @@ footer{
     .cards{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        margin: 500px auto;
         height: auto;
         width: calc(100vw - 50px);
     }
@@ -222,7 +225,7 @@ footer{
     }
 
     .container{
-        height: 900px;
+        height: auto;
     }
 
 }
@@ -230,12 +233,57 @@ footer{
 @media (max-width: 600px){
     .cards{
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        height: 1200px;
+        grid-template-rows: repeat(7, 1fr);
         width: calc(100vw - 20px);
+        max-width: 100vw;
+    }
+
+    .card1{
+        grid-column-end: span 1;
+    }
+
+    .card2{
+        grid-column-end: span 1;
+    }
+
+    .card3{
+        grid-row-end: span 1;
+    }
+
+    .card4{
+        grid-row-end: span 1;
     }
 
     .container{
-        height: 1200px;
+        max-width: 100vw;
+    }
+
+    .weather{
+        width: 100px;
+        height: 100px;
+    }
+
+    
+    .card2,.card3,.card4{
+        font-size: 24px;
+    }
+
+    .tempr{
+        font-size: 56px;
+    }
+
+    .tempr::after{
+        top: -24px;
+        left: -15px;
+    }
+
+    .lat-long{
+        font-size: 16px;
+    }
+
+    .feels-like{
+        top: 0px;
     }
 }
+
+
